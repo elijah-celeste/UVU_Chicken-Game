@@ -1,17 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TargetAI : MonoBehaviour {
 
 	public Transform holdingSpot;
 	public Transform orientation;
 
+	public UnitWander wander;
+	NavMeshAgent nav;
+
 	public bool isCaught = true;
 	public bool inPen = false;
+	public bool isWandering = true;
+
+	void Awake(){
+		nav = GetComponent<NavMeshAgent>();
+	}
 
 	void Update () {
-		holding();
+		Holding();
+		if(isWandering==true){
+			// pass run Wander(); from UnitWander.cs
+			// wander.Wander(nav);
+			
+		}
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -21,10 +35,13 @@ public class TargetAI : MonoBehaviour {
 
 	}
 
-	void holding(){
+	void Holding(){
 		if (isCaught == true && inPen == false){
 			transform.position = holdingSpot.position;
 			transform.rotation = orientation.rotation;
+		}
+		if (inPen == true){
+			// set transform to pen checkpoint
 		}
 	}
 }

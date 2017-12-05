@@ -13,7 +13,8 @@ public class UnitWander : MonoBehaviour {
 
 	private float timer;
 
-	public void Wander () {
+	public void Wander (NavMeshAgent thisObject) {
+		nav = thisObject;
 		timer += Random.Range(1.0f,timer) * Time.deltaTime;
 		nav.speed = wanderSpeed;
 

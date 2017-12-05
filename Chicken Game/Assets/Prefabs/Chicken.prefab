@@ -28,6 +28,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1445233396519388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4759577292794404}
+  - component: {fileID: 135129484511526190}
+  m_Layer: 9
+  m_Name: Detection Radius
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1503430030894864
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,9 +59,10 @@ GameObject:
   - component: {fileID: 135367425039028822}
   - component: {fileID: 195425209060959994}
   - component: {fileID: 114838529054632292}
+  - component: {fileID: 114879024329334556}
   m_Layer: 0
   m_Name: Chicken
-  m_TagString: Untagged
+  m_TagString: Chicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +94,7 @@ Transform:
   m_LocalPosition: {x: -4.61, y: 0.5, z: 6.65}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children:
+  - {fileID: 4759577292794404}
   - {fileID: 4413602286906746}
   - {fileID: 4685074135548260}
   m_Father: {fileID: 0}
@@ -93,7 +111,7 @@ Transform:
   m_LocalScale: {x: 1.0518209, y: 0.567001, z: 0.52591014}
   m_Children: []
   m_Father: {fileID: 4287504789061266}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4685074135548260
 Transform:
@@ -106,8 +124,21 @@ Transform:
   m_LocalScale: {x: 0.4494515, y: 0.22472587, z: 0.8989035}
   m_Children: []
   m_Father: {fileID: 4287504789061266}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4759577292794404
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445233396519388}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 4287504789061266}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23533921890620384
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -271,8 +302,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdingSpot: {fileID: 0}
   orientation: {fileID: 0}
+  wander: {fileID: 0}
   isCaught: 0
   inPen: 1
+  isWandering: 1
+--- !u!114 &114879024329334556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1503430030894864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f778b14ceaa1a0408299fff88ceaff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderSpeed: 3
+  wanderRadius: 20
+  wanderTimer: 5
+--- !u!135 &135129484511526190
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445233396519388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 7
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135367425039028822
 SphereCollider:
   m_ObjectHideFlags: 1
