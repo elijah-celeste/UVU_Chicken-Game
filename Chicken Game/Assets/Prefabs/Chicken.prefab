@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4759577292794404}
   - component: {fileID: 135129484511526190}
+  - component: {fileID: 114256820524569836}
   m_Layer: 9
   m_Name: Detection Radius
   m_TagString: Untagged
@@ -289,6 +290,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &114256820524569836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445233396519388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c336e56853e56014fb702c7f738359eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114838529054632292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -302,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdingSpot: {fileID: 0}
   orientation: {fileID: 0}
-  wander: {fileID: 0}
+  wander: {fileID: 1503430030894864}
   isCaught: 0
   inPen: 1
   isWandering: 1

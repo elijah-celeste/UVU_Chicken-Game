@@ -8,7 +8,7 @@ public class TargetAI : MonoBehaviour {
 	public Transform holdingSpot;
 	public Transform orientation;
 
-	public UnitWander wander;
+	public GameObject wander;
 	NavMeshAgent nav;
 
 	public bool isCaught = true;
@@ -24,7 +24,7 @@ public class TargetAI : MonoBehaviour {
 		if(isWandering==true){
 			// pass run Wander(); from UnitWander.cs
 			// wander.Wander(nav);
-			
+			wander.gameObject.GetComponent<UnitWander>().Wander(nav);
 		}
 	}
 

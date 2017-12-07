@@ -422,6 +422,31 @@ Prefab:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 767572855}
+    - target: {fileID: 114270484263008834, guid: ad714ecc6d03e8045b6728841bf34d58,
+        type: 2}
+      propertyPath: followActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114270484263008834, guid: ad714ecc6d03e8045b6728841bf34d58,
+        type: 2}
+      propertyPath: wanderActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135318357963360064, guid: ad714ecc6d03e8045b6728841bf34d58,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135318357963360064, guid: ad714ecc6d03e8045b6728841bf34d58,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135318357963360064, guid: ad714ecc6d03e8045b6728841bf34d58,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad714ecc6d03e8045b6728841bf34d58, type: 2}
   m_IsPrefabParent: 0
@@ -1201,6 +1226,7 @@ MonoBehaviour:
     type: 2}
   shootPoint: {fileID: 740899798}
   shootSpeed: 50
+  manager: {fileID: 0}
 --- !u!1 &1089088272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1693,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1476954594
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 33.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 10.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813939208865252, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6fc9ebbba070f444191b656e150eb7de, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1489539167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +2017,7 @@ MonoBehaviour:
   controller: {fileID: 1599497607}
   myCamera: {fileID: 562062223}
   moveSpeed: 5
-  gravity: 14
+  gravity: 20
   jumpHeight: 8
 --- !u!1 &1641251125
 GameObject:
@@ -2218,22 +2286,6 @@ Transform:
   m_Father: {fileID: 1438727317}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1973195071 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1445233396519388, guid: 92587c25584e3864fb8597511a520c83,
-    type: 2}
-  m_PrefabInternal: {fileID: 1831321931}
---- !u!114 &1973195073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1973195071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c336e56853e56014fb702c7f738359eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2036223247
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,12 @@ public class EnemyMovement : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter(Collision other){
+		if(other.gameObject.tag == "Player"){
+			GameManagement.health -= 10;
+		}
+	}
+
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask){
 		Vector3 randDirection = Random.insideUnitSphere * dist;
 		randDirection += origin;

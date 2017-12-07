@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour {
 
@@ -33,7 +34,17 @@ public class GameManagement : MonoBehaviour {
 		if(health<0){
 			health = 100;
 		}
-		
+
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+		}
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            print("Reload");
+            GameManagement.ammo = 32;
+        }
 	}
 
 	//possibly use an enumerator?
