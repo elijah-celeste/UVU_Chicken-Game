@@ -44,8 +44,10 @@ public class GameManagement : MonoBehaviour {
         {
             print("Reload");
             GameManagement.ammo = 32;
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
         }
-		
+
 		// if (Input.GetKeyDown(KeyCode.T)){
 		// 	if (Time.timeScale == 1.0f){
 		// 		Time.timeScale = 0.1f;

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4906934850177736}
   - component: {fileID: 135551427829379990}
+  - component: {fileID: 114268965425419762}
   m_Layer: 9
   m_Name: Detection Radius
   m_TagString: Untagged
@@ -41,8 +42,9 @@ GameObject:
   - component: {fileID: 114541247427710142}
   - component: {fileID: 195820973076143894}
   - component: {fileID: 135318357963360064}
-  - component: {fileID: 114270484263008834}
+  - component: {fileID: 114640410303752276}
   - component: {fileID: 54033504191726594}
+  - component: {fileID: 114672786840026134}
   m_Layer: 9
   m_Name: Wolf
   m_TagString: Enemy
@@ -57,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917761319322412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 6.997}
+  m_LocalPosition: {x: 0, y: 0.5, z: 61}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 4906934850177736}
@@ -145,23 +147,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114270484263008834
+--- !u!114 &114268965425419762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1917761319322412}
+  m_GameObject: {fileID: 1446319760889650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab84408a5a223441bcca0feef10df6e, type: 3}
+  m_Script: {fileID: 11500000, guid: c336e56853e56014fb702c7f738359eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followActive: 0
-  wanderActive: 1
-  followSpeed: 6
-  wanderSpeed: 3
-  wanderRadius: 100
-  wanderTimer: 3
+  _gameObject: {fileID: 1917761319322412}
+  targetType: 
 --- !u!114 &114541247427710142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,8 +173,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 3
-  spawnPoint: {fileID: 0}
+  spawner: {fileID: 0}
   points: 10
+--- !u!114 &114640410303752276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917761319322412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1735bf07cf22edf4baeff9e3f69cbed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
+  target: {fileID: 0}
+  _gameObject: {fileID: 0}
+  followSpeed: 6
+--- !u!114 &114672786840026134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917761319322412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f778b14ceaa1a0408299fff88ceaff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderSpeed: 3
+  wanderRadius: 20
+  wanderTimer: 5
 --- !u!135 &135318357963360064
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -187,7 +214,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.76
+  m_Radius: 0.65
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135551427829379990
 SphereCollider:
@@ -199,7 +226,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195820973076143894
 NavMeshAgent:
