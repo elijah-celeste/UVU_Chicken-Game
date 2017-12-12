@@ -8,9 +8,10 @@ public class SpawnManager : MonoBehaviour {
 	public float spawnTime = 3f;
 	public Transform[] spawnPoints;
 
-	public void Spawn () {
-		int spawnPointIndex = Random.Range (0,spawnPoints.Length);
 
-		Instantiate (_gameObject, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+	public Vector3 Spawn () {
+		int spawnPointIndex = Random.Range (0,spawnPoints.Length);
+		return spawnPoints[spawnPointIndex].position;
+		// Instantiate (_gameObject, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 	}
 }

@@ -6,7 +6,7 @@ public class UnitHealth : MonoBehaviour {
 	public int currentHealth;
 	public int maxHealth = 10;
 	public GameObject spawner;
-	// public Transform spawnPoint;
+	public Vector3 spawnPoint;
 	public int points;
 
 	void Awake(){
@@ -18,11 +18,11 @@ public class UnitHealth : MonoBehaviour {
 		if(currentHealth <= 0){
 			currentHealth = 0;
 			GameManagement.AddPoints(points);
-			spawner.GetComponent<SpawnManager>().Spawn();
-			// transform.position = spawnPoint.position;
-			// transform.rotation = spawnPoint.rotation;
-			// currentHealth = maxHealth;
-			Destroy(gameObject);
+			spawnPoint = spawner.GetComponent<SpawnManager>().Spawn();
+			transform.position = spawnPoint;
+			currentHealth = maxHealth;
+			
+			// Destroy(gameObject);
 		}
 	}
 }

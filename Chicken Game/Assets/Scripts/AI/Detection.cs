@@ -5,7 +5,7 @@ using UnityEngine;
 public class Detection : MonoBehaviour {
 	public GameObject _gameObject;
 
-	void OnTriggerEnter (Collider other) {
+	void OnTriggerStay (Collider other) {
 		if(_gameObject.gameObject.tag == "Enemy"){
 			if(other.gameObject.tag == "Player"){
 				setEnemyTargetFollow(other);

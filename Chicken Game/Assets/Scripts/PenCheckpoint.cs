@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PenCheckpoint : MonoBehaviour {
 
-	void Start () {
-		
+	public int chickenCount;
+
+	public Transform[] spawnPoint;
+
+	void OnTriggerEnter (Collider other) {
+		if(other.gameObject.tag == "Chicken"){
+			other.gameObject.GetComponent<TargetAI>()._state = TargetAI.state.inPen;
+			// other.gameObject.GetComponent<TargetAI>().checkpoint = spawnPoint;
+		}
 	}
 }

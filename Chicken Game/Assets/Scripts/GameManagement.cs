@@ -13,11 +13,13 @@ public class GameManagement : MonoBehaviour {
 	public Text healthDisplay;
 	public Text scoreDisplay;
 	public Text ammoDisplay;
+	public Text conditionDisplay;
 
 	void Awake () {
 		score = 0;
 		health = 100;
 		ammo = 32;
+		conditionDisplay.text = "";
 	}
 
 	void Update(){
@@ -33,6 +35,7 @@ public class GameManagement : MonoBehaviour {
 		}
 		if(health<0){
 			health = 100;
+			GameOver();
 		}
 
 		if(Input.GetKeyDown(KeyCode.Escape)){
@@ -68,5 +71,17 @@ public class GameManagement : MonoBehaviour {
 	}
 	public static void HealthModifier(int hp){
 		health += hp;
+	}
+
+	void GameOver(){
+		Debug.Log("Game Over");
+		conditionDisplay.text = "Game Over! \n Press Esc for Menu.";
+		Time.timeScale = 0.0f;
+	}
+
+	void GameWin(){
+		Debug.Log("Victory");
+		conditionDisplay.text = "You Win! \n Press Esc for Menu.";
+		Time.timeScale = 0.0f;
 	}
 }

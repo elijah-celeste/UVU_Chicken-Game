@@ -36,9 +36,14 @@ public class EnemyAI : MonoBehaviour {
 				nav.transform.LookAt(target);
 				break;
 		}
-		
-		// if(isWandering == true){
-		// 	wander.gameObject.GetComponent<UnitWander>().Wander(nav);
-		// }
+	}
+
+	void OnCollisionEnter(Collision other){
+		if(other.gameObject.tag == "Player"){
+			GameManagement.health -= 30;
+		}
+		if(other.gameObject.tag == "Chicken"){
+			other.gameObject.GetComponent<UnitHealth>().TakeDamage(1);
+		}
 	}
 }

@@ -10,8 +10,10 @@ public class PlayerCamRelative : MonoBehaviour {
 	public Transform myCamera;
 
 	public float moveSpeed = 5.0f;
+	public float runSpeed = 10f;
 	public float gravity = 14.0f;
 	public float jumpHeight = 10.0f;
+	public float defaultMoveSpeed;
 	float verticalVelocity;
 	
 	Vector3 inputDirection = new Vector3(0,0,0);
@@ -24,6 +26,7 @@ public class PlayerCamRelative : MonoBehaviour {
 
 	void Start(){
 		controller = GetComponent<CharacterController>();
+		defaultMoveSpeed = moveSpeed;
 	}
 
 	void Update () {
@@ -63,6 +66,14 @@ public class PlayerCamRelative : MonoBehaviour {
 			Vector3 point = pointer.position;
 			point.y = 0.0f;
 			transform.LookAt(point);
+		}
+		if(Input.GetKey(KeyCode.LeftShift)){
+			if(moveSpeed == defaultMoveSpeed){
+				moveSpeed = runSpeed;
+			}
+		}
+		else{
+			moveSpeed = defaultMoveSpeed;
 		}
 	}
 }
