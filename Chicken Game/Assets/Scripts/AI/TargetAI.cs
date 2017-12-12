@@ -17,6 +17,7 @@ public class TargetAI : MonoBehaviour {
 	public Transform checkpoint;
 
 	public GameObject _gameObject;
+	public bool active = true;
 	NavMeshAgent nav;
 
 	public float runSpeed = 8f;
@@ -34,9 +35,9 @@ public class TargetAI : MonoBehaviour {
 			case state.caught:
 				Holding();
 				break;
-			// case state.inPen:
-			// 	transform.position = checkpoint.position;
-			// 	break;
+			case state.inPen:
+				InPen();
+				break;
 			case state.running:
 				nav.speed = runSpeed;
 				nav.SetDestination(enemy.transform.forward*25);
@@ -44,15 +45,13 @@ public class TargetAI : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other){
-		if(other.gameObject.tag == "Player"){
-			if(_state != state.inPen)
-			_state = state.caught;
-		}
+	void Holding(){
+		transform.position = holdingSpot.position;
+		transform.rotation = orientation.rotation;
 	}
 
-	void Holding(){
-			transform.position = holdingSpot.position;
-			transform.rotation = orientation.rotation;
+	void InPen(){
+		transform.position = checkpoint.position;
+		active = false;
 	}
 }

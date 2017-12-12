@@ -36,7 +36,7 @@ public class GameManagement : MonoBehaviour {
 		if(ammo<0){
 			ammo = 32;
 		}
-		if(health<0){
+		if(health<=0){
 			health = 100;
 			GameOver();
 		}
@@ -44,7 +44,7 @@ public class GameManagement : MonoBehaviour {
 		if(score >= pointsToWin){
 			GameWin();
 		}
-		
+
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			SceneManager.LoadScene(0);
             Cursor.lockState = CursorLockMode.None;

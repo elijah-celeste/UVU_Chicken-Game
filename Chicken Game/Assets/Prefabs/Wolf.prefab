@@ -58,8 +58,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917761319322412}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 61}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -87.1, y: 0.5, z: 71.8}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 4906934850177736}
@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c336e56853e56014fb702c7f738359eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLock: 0
   _gameObject: {fileID: 1917761319322412}
-  targetType: 
 --- !u!114 &114541247427710142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,7 +174,8 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 3
   spawner: {fileID: 0}
-  points: 10
+  spawnPoint: {x: 0, y: 0, z: 0}
+  points: 25
 --- !u!114 &114640410303752276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,6 +191,7 @@ MonoBehaviour:
   target: {fileID: 0}
   _gameObject: {fileID: 0}
   followSpeed: 6
+  currentSpeed: 0
 --- !u!114 &114672786840026134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,8 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f778b14ceaa1a0408299fff88ceaff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderSpeed: 3
-  wanderRadius: 20
+  wanderSpeed: 6
+  wanderRadius: 30
   wanderTimer: 5
 --- !u!135 &135318357963360064
 SphereCollider:
@@ -226,7 +228,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195820973076143894
 NavMeshAgent:
@@ -248,4 +250,4 @@ NavMeshAgent:
   m_Height: 0.8
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2

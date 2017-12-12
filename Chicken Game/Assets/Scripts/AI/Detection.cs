@@ -12,8 +12,13 @@ public class Detection : MonoBehaviour {
 		if(targetLock == false){
 			if(_gameObject.tag == "Enemy"){
 				if(other.gameObject.tag == "Chicken"){
-					setEnemyTargetFollow(other);
-					targetLock = true;
+					if(other.gameObject.GetComponent<TargetAI>().active == true){
+						setEnemyTargetFollow(other);
+						targetLock = true;
+					}
+					else{
+						targetLock = false;
+					}
 				}
 				if(other.gameObject.tag == "Player"){
 					setEnemyTargetFollow(other);
@@ -21,10 +26,14 @@ public class Detection : MonoBehaviour {
 				}
 			}
 			if(_gameObject.tag == "Chicken"){
-				if((other.gameObject.tag == "Player") || (other.gameObject.tag == "Enemy")){
-					_gameObject.GetComponent<TargetAI>().enemy = other.transform;
-					_gameObject.GetComponent<TargetAI>()._state = TargetAI.state.running;
-				}
+				if(_gameObject.GetComponent<TargetAI>().active == true){
+					if(_gameObject.GetComponent<TargetAI>()._state == TargetAI.state.wandering){
+						if((other.gameObject.tag == "Player") || (other.gameObject.tag == "Enemy")){
+							_gameObject.GetComponent<TargetAI>().enemy = other.transform;
+							_gameObject.GetComponent<TargetAI>()._state = TargetAI.state.running;
+						}
+					}
+				}	
 			}
 		}
 	}
@@ -36,8 +45,10 @@ public class Detection : MonoBehaviour {
 			}
 		}
 		if(_gameObject.tag == "Chicken"){
-			if((other.gameObject.tag == "Player") || (other.gameObject.tag == "Enemy")){
-				_gameObject.GetComponent<TargetAI>()._state = TargetAI.state.wandering;
+			if(_gameObject.GetComponent<TargetAI>().active == true){
+				if((other.gameObject.tag == "Player") || (other.gameObject.tag == "Enemy")){
+					_gameObject.GetComponent<TargetAI>()._state = TargetAI.state.wandering;
+				}
 			}
 		}
 	}
