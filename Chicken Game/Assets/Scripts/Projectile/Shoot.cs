@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour {
 	// public GameObject player;
 	// public Transform pointer;
 	
-	void FixedUpdate () {
+	void Update () {
 		if(Input.GetKeyDown(KeyCode.Mouse0)){
 			if (GameManagement.ammo > 0){
 			Rigidbody clone;

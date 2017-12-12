@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour {
 
 	Transform player;
+	Transform target;
 	NavMeshAgent nav;
 	public bool followActive = false;
 	public bool wanderActive = true;

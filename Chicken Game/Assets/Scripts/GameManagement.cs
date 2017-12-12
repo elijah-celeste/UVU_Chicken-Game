@@ -45,6 +45,16 @@ public class GameManagement : MonoBehaviour {
             print("Reload");
             GameManagement.ammo = 32;
         }
+		
+		// if (Input.GetKeyDown(KeyCode.T)){
+		// 	if (Time.timeScale == 1.0f){
+		// 		Time.timeScale = 0.1f;
+		// 		Debug.Log("ザ・ワールド");
+		// 		}
+		// 	else {	
+		// 		Time.timeScale = 1.0f;
+		// 	}
+		// }
 	}
 
 	//possibly use an enumerator?
