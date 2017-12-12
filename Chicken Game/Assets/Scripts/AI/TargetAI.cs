@@ -6,17 +6,20 @@ using UnityEngine.AI;
 public class TargetAI : MonoBehaviour {
 
 	public enum state{
-		inPen, wandering, caught, running
+		wandering, inPen, caught, running
 	}
 
 	public state _state;
 
+	public Transform enemy;
 	public Transform holdingSpot;
 	public Transform orientation;
 	public Transform checkpoint;
 
 	public GameObject _gameObject;
 	NavMeshAgent nav;
+
+	public float runSpeed = 8f;
 
 	void Awake(){
 		nav = GetComponent<NavMeshAgent>();
@@ -31,8 +34,12 @@ public class TargetAI : MonoBehaviour {
 			case state.caught:
 				Holding();
 				break;
-			case state.inPen:
-				transform.position = checkpoint.position;
+			// case state.inPen:
+			// 	transform.position = checkpoint.position;
+			// 	break;
+			case state.running:
+				nav.speed = runSpeed;
+				nav.SetDestination(enemy.transform.forward*25);
 				break;
 		}
 	}

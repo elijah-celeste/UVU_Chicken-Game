@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour {
 	public Rigidbody projectile;
 	public Transform shootPoint;
 	public int shootSpeed;
 	public GameObject manager;
+	public Text reloadDisplay;
 
 	// public GameObject player;
 	// public Transform pointer;
@@ -20,6 +22,9 @@ public class Shoot : MonoBehaviour {
 			clone.velocity = shootPoint.TransformDirection(Vector3.forward*shootSpeed);
 
 			GameManagement.DecreaseAmmo(1);
+			}
+			else{
+				reloadDisplay.enabled = true;
 			}
 
 		// //rotate Player to face pointer

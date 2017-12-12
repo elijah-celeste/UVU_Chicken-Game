@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour {
 
 	public enum state{
-		Wandering,
-		Following
+		wandering,
+		following
 	}
 
 	public state _state;
@@ -18,29 +18,37 @@ public class EnemyAI : MonoBehaviour {
 	NavMeshAgent nav;
 
 	public float followSpeed = 6;
+	public float currentSpeed;
 
 	void Awake () {
 		nav = GetComponent<NavMeshAgent>();
-		_state = state.Wandering;
+		_state = state.wandering;
 		_gameObject = this.gameObject;
 	}
 
 	void Update(){
 		switch(_state){
-			case state.Wandering:
+			case state.wandering:
 				_gameObject.gameObject.GetComponent<UnitWander>().Wander(nav);
 				break;
-			case state.Following:
-				nav.speed = followSpeed;
+			case state.following:
+				if(target.tag == "Chicken"){
+					nav.speed = followSpeed + 8;
+				}
+				else{
+					nav.speed = followSpeed;
+				}
 				nav.SetDestination(target.position);
-				nav.transform.LookAt(target);
+				// nav.transform.LookAt(target);
 				break;
 		}
+
+		currentSpeed = nav.speed;
 	}
 
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.tag == "Player"){
-			GameManagement.health -= 30;
+			GameManagement.health -= 25;
 		}
 		if(other.gameObject.tag == "Chicken"){
 			other.gameObject.GetComponent<UnitHealth>().TakeDamage(1);

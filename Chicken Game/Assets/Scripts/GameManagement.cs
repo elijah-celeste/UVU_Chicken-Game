@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour {
 
+	public int pointsToWin;
+
 	public static int score;
 	public static int health;
 	public static int ammo;
@@ -14,6 +16,7 @@ public class GameManagement : MonoBehaviour {
 	public Text scoreDisplay;
 	public Text ammoDisplay;
 	public Text conditionDisplay;
+	public Text reloadDisplay;
 
 	void Awake () {
 		score = 0;
@@ -38,31 +41,28 @@ public class GameManagement : MonoBehaviour {
 			GameOver();
 		}
 
+		if(score >= pointsToWin){
+			GameWin();
+		}
+		
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			SceneManager.LoadScene(0);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 		}
-        if (Input.GetKeyDown(KeyCode.R))
+        
+		if (Input.GetKeyDown(KeyCode.R))
         {
             print("Reload");
             GameManagement.ammo = 32;
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
+			reloadDisplay.enabled = false;
         }
 
-		// if (Input.GetKeyDown(KeyCode.T)){
-		// 	if (Time.timeScale == 1.0f){
-		// 		Time.timeScale = 0.1f;
-		// 		Debug.Log("ザ・ワールド");
-		// 		}
-		// 	else {	
-		// 		Time.timeScale = 1.0f;
-		// 	}
-		// }
+
 	}
 
-	//possibly use an enumerator?
 	public static void AddPoints(int pointsToAdd){
 		score += pointsToAdd;
 	}
